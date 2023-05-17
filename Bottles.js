@@ -24,8 +24,11 @@ class Bottles {
   }
 
   bottleNumberFor(number) {
-    if (number === 0) return new BottleNumber0(number);
-    else return new BottleNumber(number);
+    let bottleNumberClass;
+    if (number === 0) bottleNumberClass = BottleNumber0;
+    else bottleNumberClass = BottleNumber;
+
+    return new bottleNumberClass(number);
   }
 }
 
