@@ -78,4 +78,14 @@ class BottleNumber0 extends BottleNumber {
   }
 }
 
+class BottleNumber1 extends BottleNumber {
+  container() {
+    return "bottle";
+  }
+
+  pronoun() {
+    return "it";
+  }
+}
+
 module.exports = Bottles;
