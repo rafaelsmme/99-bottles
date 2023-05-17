@@ -22,6 +22,10 @@ class Bottles {
       `${nextBottleNumber} of beer on the wall.\n`
     );
   }
+
+  bottleNumberFor(number) {
+    return new BottleNumber(number);
+  }
 }
 
 class BottleNumber {
