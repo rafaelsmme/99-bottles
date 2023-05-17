@@ -25,8 +25,17 @@ class Bottles {
 
   bottleNumberFor(number) {
     let bottleNumberClass;
-    if (number === 0) bottleNumberClass = BottleNumber0;
-    else bottleNumberClass = BottleNumber;
+    switch (number) {
+      case 0:
+        bottleNumberClass = BottleNumber0;
+        break;
+      case 1:
+        bottleNumberClass = BottleNumber1;
+        break;
+      default:
+        bottleNumberClass = BottleNumber;
+        break;
+    }
 
     return new bottleNumberClass(number);
   }
@@ -42,13 +51,11 @@ class BottleNumber {
   }
 
   container() {
-    if (this.number === 1) return "bottle";
-    else return "bottles";
+    return "bottles";
   }
 
   pronoun() {
-    if (this.number === 1) return "it";
-    else return "one";
+    return "one";
   }
 
   quantity() {
