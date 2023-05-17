@@ -1,0 +1,12 @@
+{
+  "name": "99-bottles",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Bottles.spec.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
