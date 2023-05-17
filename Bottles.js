@@ -56,12 +56,10 @@ class BottleNumber {
   }
 
   action() {
-    if (this.number === 0) return "Go to the store and buy some more";
     return `Take ${this.pronoun()} down and pass it around`;
   }
 
   successor() {
-    if (this.number === 0) return 99;
     return this.number - 1;
   }
 }
@@ -69,6 +67,14 @@ class BottleNumber {
 class BottleNumber0 extends BottleNumber {
   quantity() {
     return "no more";
+  }
+
+  action() {
+    return "Go to the store and buy some more";
+  }
+
+  successor() {
+    return 99;
   }
 }
 
