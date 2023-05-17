@@ -59,4 +59,6 @@ class BottleNumber {
   }
 }
 
+class BottleNumber0 extends BottleNumber {}
+
 module.exports = Bottles;
