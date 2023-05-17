@@ -52,8 +52,7 @@ class BottleNumber {
   }
 
   quantity() {
-    if (this.number === 0) return "no more";
-    else return this.number.toString();
+    return this.number.toString();
   }
 
   action() {
