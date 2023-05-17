@@ -12,8 +12,8 @@ class Bottles {
   }
 
   verse(number) {
-    const bottleNumber = new BottleNumber(number);
-    const nextBottleNumber = new BottleNumber(bottleNumber.successor());
+    const bottleNumber = this.bottleNumberFor(number);
+    const nextBottleNumber = this.bottleNumberFor(bottleNumber.successor());
 
     return (
       capitalize(`${bottleNumber} of beer on the wall, `) +
