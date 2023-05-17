@@ -12,8 +12,8 @@ class Bottles {
   }
 
   verse(number) {
-    const bottleNumber = this.bottleNumberFor(number);
-    const nextBottleNumber = this.bottleNumberFor(bottleNumber.successor());
+    const bottleNumber = BottleNumber.for(number);
+    const nextBottleNumber = BottleNumber.for(bottleNumber.successor());
 
     return (
       capitalize(`${bottleNumber} of beer on the wall, `) +
@@ -22,8 +22,14 @@ class Bottles {
       `${nextBottleNumber} of beer on the wall.\n`
     );
   }
+}
 
-  bottleNumberFor(number) {
+class BottleNumber {
+  constructor(number) {
+    this.number = number;
+  }
+
+  static for(number) {
     let bottleNumberClass;
     switch (number) {
       case 0:
@@ -38,12 +44,6 @@ class Bottles {
     }
 
     return new bottleNumberClass(number);
-  }
-}
-
-class BottleNumber {
-  constructor(number) {
-    this.number = number;
   }
 
   toString() {
