@@ -61,8 +61,7 @@ class BottleNumber {
 
 class BottleNumber0 extends BottleNumber {
   quantity() {
-    if (this.number === 0) return "no more";
-    else return this.number.toString();
+    return "no more";
   }
 }
 
