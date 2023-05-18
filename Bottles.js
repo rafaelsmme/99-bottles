@@ -13,7 +13,7 @@ class Bottles {
 
   verse(number) {
     const bottleNumber = BottleNumber.for(number);
-    const nextBottleNumber = BottleNumber.for(bottleNumber.successor());
+    const nextBottleNumber = bottleNumber.successor();
 
     return (
       capitalize(`${bottleNumber} of beer on the wall, `) +
@@ -67,7 +67,7 @@ class BottleNumber {
   }
 
   successor() {
-    return this.number - 1;
+    return BottleNumber.for(this.number - 1);
   }
 }
 
@@ -81,7 +81,7 @@ class BottleNumber0 extends BottleNumber {
   }
 
   successor() {
-    return 99;
+    return BottleNumber.for(99);
   }
 }
 
