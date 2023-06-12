@@ -29,23 +29,19 @@ class BottleNumber {
   }
 
   static for(number) {
-    let bottleNumberClass;
-    switch (number) {
-      case 0:
-        bottleNumberClass = BottleNumber0;
-        break;
-      case 1:
-        bottleNumberClass = BottleNumber1;
-        break;
-      case 6:
-        bottleNumberClass = BottleNumber6;
-        break;
-      default:
-        bottleNumberClass = BottleNumber;
-        break;
-    }
+    let bottleNumberClass = BottleNumber.registry.find((candidate) =>
+      candidate.canHandle(number)
+    );
 
     return new bottleNumberClass(number);
+  }
+
+  static register(bottleNumberClass) {
+    BottleNumber.registry.unshift(bottleNumberClass);
+  }
+
+  static canHandle(number) {
+    return true;
   }
 
   toString() {
@@ -72,6 +68,7 @@ class BottleNumber {
     return BottleNumber.for(this.number - 1);
   }
 }
+BottleNumber.registry = [BottleNumber];
 
 class BottleNumber0 extends BottleNumber {
   quantity() {
@@ -85,7 +82,12 @@ class BottleNumber0 extends BottleNumber {
   successor() {
     return BottleNumber.for(99);
   }
+
+  static canHandle(number) {
+    return number === 0;
+  }
 }
+BottleNumber.register(BottleNumber0);
 
 class BottleNumber1 extends BottleNumber {
   container() {
@@ -95,7 +97,12 @@ class BottleNumber1 extends BottleNumber {
   pronoun() {
     return "it";
   }
+
+  static canHandle(number) {
+    return number === 1;
+  }
 }
+BottleNumber.register(BottleNumber1);
 
 class BottleNumber6 extends BottleNumber {
   container() {
@@ -105,6 +112,11 @@ class BottleNumber6 extends BottleNumber {
   quantity() {
     return "1";
   }
+
+  static canHandle(number) {
+    return number === 6;
+  }
 }
+BottleNumber.register(BottleNumber6);
 
 module.exports = Bottles;
